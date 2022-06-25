@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/materia")
+@CrossOrigin
 public class MateriaController {
     @Autowired
     MateriaService materiaService;
