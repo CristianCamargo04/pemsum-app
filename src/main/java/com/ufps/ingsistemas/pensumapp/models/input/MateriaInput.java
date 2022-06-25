@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class MateriaInput {
+public class  MateriaInput {
     @NotEmpty(message="El código de la materia es obligatorio")
     @NumberFormat
     @Size(min = 7, max = 7, message="El código de la materia tiene que tener entre 6 caracteres")

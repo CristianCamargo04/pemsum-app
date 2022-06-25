@@ -21,4 +21,10 @@ public class MateriaController {
         return ResponseEntity.ok(materiaCreada);
     }
 
+    @GetMapping
+    public ResponseEntity<List<MateriaEntity>> listarMateria(){
+        var materias = materiaService.listarMaterias();
+        return ResponseEntity.ok(materias);
+    }
+
 }
