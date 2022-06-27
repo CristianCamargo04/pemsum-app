@@ -12,12 +12,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="materias")
-public class MateriaEntity {
+@Table(name="pensum_electiva")
+public class PensumElectivaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cod_pensum")
+    private PensumEntity pensumEntity;
+
     private String nombre;
     private String horas;
     private String creditos;
+    private String semestre;
 }

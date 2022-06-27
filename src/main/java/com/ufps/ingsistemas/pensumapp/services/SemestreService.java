@@ -14,17 +14,17 @@ public class SemestreService {
     @Autowired
     MateriaRepository materiaRepository;
 
-    public List<SemestreOutput> listarSemestres(){
-        List<SemestreOutput> semestres = new ArrayList<SemestreOutput>();
-        for (int i = 1; i <= 10; i++){
-            var materias = materiaRepository.findBySemestre(Integer.toString(i));
-            var semestre = SemestreOutput
-                    .builder()
-                    .semestre(Integer.toString(i))
-                    .materias(Collections.singletonList(materias))
-                    .build();
-            semestres.add(semestre);
-        }
-        return semestres;
-    }
+//    public List<SemestreOutput> listarSemestres(){
+//        List<SemestreOutput> semestres = new ArrayList<SemestreOutput>();
+//        for (int i = 1; i <= 10; i++){
+//            var materias = materiaRepository.findBySemestre(Integer.toString(i));
+//            var semestre = SemestreOutput
+//                    .builder()
+//                    .semestre(Integer.toString(i))
+//                    .materias(Collections.singletonList(materias))
+//                    .build();
+//            semestres.add(semestre);
+//        }
+//        return semestres;
+//    }
 }

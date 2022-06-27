@@ -18,9 +18,9 @@ public class SemestreController {
     @Autowired
     SemestreService semestreService;
 
-    @GetMapping
-    public ResponseEntity<List<SemestreOutput>> listarSemestres(){
-        var semestres = semestreService.listarSemestres();
-        return ResponseEntity.ok(semestres);
-    }
+//    @GetMapping
+//    public ResponseEntity<List<SemestreOutput>> listarSemestres(){
+//        var semestres = semestreService.listarSemestres();
+//        return ResponseEntity.ok(semestres);
+//    }
 }

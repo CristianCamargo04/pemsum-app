@@ -2,9 +2,10 @@ package com.ufps.ingsistemas.pensumapp.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ufps.ingsistemas.pensumapp.entities.MateriaEntity;
+import com.ufps.ingsistemas.pensumapp.entities.PensumEntity;
 import com.ufps.ingsistemas.pensumapp.models.input.MateriaInput;
-import com.ufps.ingsistemas.pensumapp.services.MateriaService;
+import com.ufps.ingsistemas.pensumapp.models.input.PensumInput;
+import com.ufps.ingsistemas.pensumapp.services.PensumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +20,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/materia")
+@RequestMapping("/api/pensum")
 @CrossOrigin
-public class MateriaController {
+public class PensumController {
     @Autowired
-    MateriaService materiaService;
+    PensumService pensumService;
 
     private String formatMessage( BindingResult result){
         List<Map<String,String>> errors = result.getFieldErrors().stream()
@@ -47,36 +48,33 @@ public class MateriaController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> crearMateria(@Valid @RequestBody MateriaInput materiaInput, BindingResult result){
+    public ResponseEntity<Object> crearPensum(@Valid @RequestBody PensumInput pensumInput, BindingResult result){
         if (result.hasErrors()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, this.formatMessage(result));
         }
-        var materiaCreada = materiaService.almacenarMateria(materiaInput);
-        return ResponseEntity.ok(materiaCreada);
+        var pensumCreado = pensumService.almacenarPensum(pensumInput);
+        return ResponseEntity.ok(pensumCreado);
     }
 
     @GetMapping
-    public ResponseEntity<List<MateriaEntity>> listarMateria(){
-        var materias = materiaService.listarMaterias();
-        if (materias.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(materias);
+    public ResponseEntity<List<PensumEntity>> listarPensums(){
+        var pensums = pensumService.listarPensums();
+        if(pensums.isEmpty()) return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(pensums);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> buscarMateria(@PathVariable("id") Long id){
-        var materiaDB = materiaService.buscarMateria(id);
-        if(null == materiaDB) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(materiaDB);
+    @GetMapping( value = "/{codigo}")
+    public ResponseEntity<Object> encontrarPensum(@PathVariable("codigo") String codigo){
+        var pensumDB = pensumService.encontrarPensum(codigo);
+        if (null == pensumDB) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(pensumDB);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Object> eliminarMateria(@PathVariable("id") Long id){
-        var materiaEliminado = materiaService.eliminarMateria(id);
-        return materiaEliminado?
-                ResponseEntity.ok(materiaEliminado):
+    @DeleteMapping( value = "/{codigo}")
+    public ResponseEntity<Object> eliminarPensum(@PathVariable("codigo") String codigo){
+        var pensumEliminado = pensumService.eliminarPensum(codigo);
+        return pensumEliminado?
+                ResponseEntity.ok(pensumEliminado):
                 ResponseEntity.notFound().build();
     }
-
 }
