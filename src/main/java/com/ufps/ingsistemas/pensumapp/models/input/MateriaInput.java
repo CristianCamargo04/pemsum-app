@@ -20,4 +20,6 @@ public class  MateriaInput {
 
     @NotEmpty(message="Los creditos de la materia son obligatorios")
     private String creditos;
+
+    private byte[] microcurriculo;
 }

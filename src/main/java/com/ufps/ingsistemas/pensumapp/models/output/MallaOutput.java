@@ -1,5 +1,6 @@
 package com.ufps.ingsistemas.pensumapp.models.output;
 
+import com.ufps.ingsistemas.pensumapp.vo.ElectivaMallaVO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,9 @@ import java.util.List;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class SemestreOutput {
-    private String numero;
-    private List<Object> materias;
+public class MallaOutput {
+    private String codPensum;
+    private List<SemestreOutput> semestres;
+    private List<ElectivaMallaVO> profesionales;
+    private List<ElectivaMallaVO> sociohumanisticas;
 }

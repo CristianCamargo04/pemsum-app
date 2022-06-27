@@ -18,6 +18,7 @@ public class MateriaService {
                 .nombre(materiaInput.getNombre())
                 .horas(materiaInput.getHoras())
                 .creditos(materiaInput.getCreditos())
+                .microcurriculo(materiaInput.getMicrocurriculo())
                 .build();
         return materiaRepository.save(materiaEntity);
     }
