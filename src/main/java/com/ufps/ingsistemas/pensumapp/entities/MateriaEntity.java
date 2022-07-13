@@ -20,5 +20,5 @@ public class MateriaEntity {
     private String nombre;
     private String horas;
     private String creditos;
-    private byte[] microcurriculo;
+    private String microcurriculo;
 }

@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class  MateriaInput {
+    private long id;
     @NotEmpty(message="El nombre de la materia es obligatorio")
     private String nombre;
 
@@ -21,5 +22,5 @@ public class  MateriaInput {
     @NotEmpty(message="Los creditos de la materia son obligatorios")
     private String creditos;
 
-    private byte[] microcurriculo;
+    private String microcurriculo;
 }

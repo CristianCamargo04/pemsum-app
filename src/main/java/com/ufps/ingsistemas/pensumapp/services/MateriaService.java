@@ -15,6 +15,7 @@ public class MateriaService {
 
     public MateriaEntity almacenarMateria(MateriaInput materiaInput){
         var materiaEntity = MateriaEntity.builder()
+                .id(materiaInput.getId())
                 .nombre(materiaInput.getNombre())
                 .horas(materiaInput.getHoras())
                 .creditos(materiaInput.getCreditos())

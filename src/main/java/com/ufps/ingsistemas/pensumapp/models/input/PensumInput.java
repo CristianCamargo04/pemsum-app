@@ -15,5 +15,5 @@ public class PensumInput {
     @NotEmpty(message="El codigo del pensum es obligatorio")
     private String codigo;
 
-    private byte[] url;
+    private String url;
 }
