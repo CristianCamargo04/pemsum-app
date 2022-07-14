@@ -58,6 +58,9 @@ public class MallaService {
     public List<MateriaPensumVO> listarMaterias(){
         return pensumMateriaRepository.findAllMaterias();
     }
+    public List<MateriaPensumVO> listarPrerrequisitos(String codPensum, String semestre){
+        return pensumMateriaRepository.findAllMateriasPrerrequisitos(codPensum,semestre);
+    }
 
     public boolean eliminarMateria(Long id){
         var materiaDB = buscarMateria(id);

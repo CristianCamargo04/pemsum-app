@@ -98,4 +98,10 @@ public class MallaController {
         var materias = mallaService.listarMateriasPorPensumYSemestre(codPensum,semestre);
         return ResponseEntity.ok(materias);
     }
+
+    @GetMapping(value = "/prerrequisitos/{codPensum}/{semestre}")
+    public ResponseEntity<List<MateriaPensumVO>> listarPrerrequisitos(@PathVariable("codPensum") String codPensum,@PathVariable("semestre") String semestre){
+        var materias = mallaService.listarPrerrequisitos(codPensum,semestre);
+        return ResponseEntity.ok(materias);
+    }
 }
