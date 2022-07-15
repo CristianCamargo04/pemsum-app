@@ -100,7 +100,7 @@ public class MallaController {
     }
 
     @GetMapping(value = "/prerrequisitos/{codPensum}/{semestre}")
-    public ResponseEntity<List<MateriaPensumVO>> listarPrerrequisitos(@PathVariable("codPensum") String codPensum,@PathVariable("semestre") String semestre){
+    public ResponseEntity<List<MateriaPensumVO>> listarPrerrequisitos(@PathVariable("codPensum") String codPensum,@PathVariable("semestre") Integer semestre){
         var materias = mallaService.listarPrerrequisitos(codPensum,semestre);
         return ResponseEntity.ok(materias);
     }

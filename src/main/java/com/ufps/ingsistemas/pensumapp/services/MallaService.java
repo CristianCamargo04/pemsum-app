@@ -58,7 +58,7 @@ public class MallaService {
     public List<MateriaPensumVO> listarMaterias(){
         return pensumMateriaRepository.findAllMaterias();
     }
-    public List<MateriaPensumVO> listarPrerrequisitos(String codPensum, String semestre){
+    public List<MateriaPensumVO> listarPrerrequisitos(String codPensum, Integer semestre){
         return pensumMateriaRepository.findAllMateriasPrerrequisitos(codPensum,semestre);
     }
 
