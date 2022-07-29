@@ -17,4 +17,6 @@ public class PensumEntity {
     @Id
     private String codigo;
     private String url;
+    private boolean pensumTerminado;
+    private boolean mallaTerminada;
 }

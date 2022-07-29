@@ -12,4 +12,5 @@ public interface MateriaPensumVO {
      Boolean getElectiva();
      String getCodPerrequisito();
      String getCrePerrequisito();
+     String getMicrocurriculo();
 }

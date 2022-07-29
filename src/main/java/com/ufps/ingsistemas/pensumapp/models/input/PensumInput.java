@@ -14,6 +14,7 @@ import javax.validation.constraints.NotEmpty;
 public class PensumInput {
     @NotEmpty(message="El codigo del pensum es obligatorio")
     private String codigo;
-
     private String url;
+    private boolean pensumTerminado;
+    private boolean mallaTerminada;
 }

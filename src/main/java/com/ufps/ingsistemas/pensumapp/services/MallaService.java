@@ -115,6 +115,28 @@ public class MallaService {
         return pensumMateriaRepository.findAllElectivasByPensumByCreditos(codPensum,creditos);
     }
 
+//    public MallaOutput obtenerPensum(String codPensum){
+//        List<SemestreOutput> semestres = new ArrayList<SemestreOutput>();
+//        for (int i = 1; i <= 10; i++){
+//            var materias = listarMateriasPorPensumYSemestre(codPensum,Integer.toString(i));
+//            var semestre = SemestreOutput
+//                    .builder()
+//                    .numero(Integer.toString(i))
+//                    .materias(Collections.singletonList(materias))
+//                    .build();
+//            semestres.add(semestre);
+//        }
+//        var sociohumanisticas = listarMateriasPorPensumYCreditos(codPensum,"2");
+//        var profesionales = listarMateriasPorPensumYCreditos(codPensum,"3");
+//        var malla = MallaOutput.builder()
+//                .codPensum(codPensum)
+//                .semestres(semestres)
+//                .sociohumanisticas(sociohumanisticas)
+//                .profesionales(profesionales)
+//                .build();
+//        return malla;
+//    }
+
     public MallaOutput obtenerMalla(String codPensum){
         List<SemestreOutput> semestres = new ArrayList<SemestreOutput>();
         for (int i = 1; i <= 10; i++){
@@ -126,13 +148,9 @@ public class MallaService {
                     .build();
             semestres.add(semestre);
         }
-        var sociohumanisticas = listarMateriasPorPensumYCreditos(codPensum,"2");
-        var profesionales = listarMateriasPorPensumYCreditos(codPensum,"3");
         var malla = MallaOutput.builder()
                 .codPensum(codPensum)
                 .semestres(semestres)
-                .sociohumanisticas(sociohumanisticas)
-                .profesionales(profesionales)
                 .build();
         return malla;
     }

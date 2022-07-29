@@ -10,4 +10,5 @@ public interface MateriaMallaVo {
     String getSemestre();
     String getCodPerrequisito();
     String getCrePerrequisito();
+    String getMicrocurriculo();
 }

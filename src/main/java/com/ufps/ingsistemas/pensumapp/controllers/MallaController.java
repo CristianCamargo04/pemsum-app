@@ -7,6 +7,7 @@ import com.ufps.ingsistemas.pensumapp.models.input.PensumElectivaInput;
 import com.ufps.ingsistemas.pensumapp.models.input.PensumMateriaInput;
 import com.ufps.ingsistemas.pensumapp.models.output.MallaOutput;
 import com.ufps.ingsistemas.pensumapp.services.MallaService;
+import com.ufps.ingsistemas.pensumapp.services.PensumService;
 import com.ufps.ingsistemas.pensumapp.vo.ElectivaPensumVO;
 import com.ufps.ingsistemas.pensumapp.vo.MateriaMallaVo;
 import com.ufps.ingsistemas.pensumapp.vo.MateriaPensumVO;
@@ -22,9 +23,14 @@ import java.util.List;
 public class MallaController {
     @Autowired
     MallaService mallaService;
+    @Autowired
+    PensumService pensumService;
 
     @GetMapping(value = "/{codPensum}")
     public ResponseEntity<MallaOutput> obtenerMalla(@PathVariable("codPensum") String codPensum){
+        var pensumDB = pensumService.encontrarPensum(codPensum);
+        if (null == pensumDB) return ResponseEntity.notFound().build();
+        if (!pensumDB.isMallaTerminada()) return ResponseEntity.notFound().build();
         var malla = mallaService.obtenerMalla(codPensum);
         return ResponseEntity.ok(malla);
     }

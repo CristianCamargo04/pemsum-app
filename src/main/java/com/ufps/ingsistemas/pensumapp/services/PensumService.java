@@ -17,6 +17,8 @@ public class PensumService {
         var pensumEntity = PensumEntity.builder()
                 .codigo(pensumInput.getCodigo())
                 .url(pensumInput.getUrl())
+                .pensumTerminado(pensumInput.isPensumTerminado())
+                .mallaTerminada(pensumInput.isMallaTerminada())
                 .build();
 
         return pensumRepository.save(pensumEntity);
