@@ -23,7 +23,7 @@ public interface PensumMateriaRepository extends CrudRepository<PensumMateriaEnt
             "ON pm.id_materia = m.id WHERE pm.cod_pensum = :codPensum and pm.semestre < :semestre", nativeQuery = true)
     List<MateriaPensumVO> findAllMateriasPrerrequisitos(String codPensum, Integer semestre);
 
-    @Query(value = "SELECT pm.id, m.id as idMateria, pm.codigo, m.nombre, m.horas, m.creditos, pm.semestre, pm.cod_perrequisito as codPerrequisito, pm.cre_perrequisito as crePerrequisito, m.microcurriculo" +
+    @Query(value = "SELECT pm.id, m.id as idMateria, pm.codigo, m.nombre, m.horas, m.creditos, pm.semestre, pm.cod_perrequisito as codPerrequisito, pm.cre_perrequisito as crePerrequisito, m.microcurriculo, pm.electiva" +
             "    FROM pensum_materia pm INNER JOIN materias m  ON pm.id_materia = m.id " +
             "    WHERE pm.cod_pensum = :codPensum AND pm.semestre = :semestre", nativeQuery = true)
     List<MateriaMallaVo> findAllMateriasByPensumBySemestre(String codPensum, String semestre);

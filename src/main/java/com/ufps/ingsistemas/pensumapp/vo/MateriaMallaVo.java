@@ -11,4 +11,5 @@ public interface MateriaMallaVo {
     String getCodPerrequisito();
     String getCrePerrequisito();
     String getMicrocurriculo();
+    Boolean getElectiva();
 }
