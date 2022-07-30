@@ -1,0 +1,27 @@
+package com.ufps.ingsistemas.pensumapp.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.GenerationType.AUTO;
+
+@Data
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="roles")
+public class RoleEntity {
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    private Long id;
+    private String name;
+}
+
