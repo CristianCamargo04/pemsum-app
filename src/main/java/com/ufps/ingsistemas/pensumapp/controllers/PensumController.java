@@ -6,6 +6,7 @@ import com.ufps.ingsistemas.pensumapp.entities.PensumEntity;
 import com.ufps.ingsistemas.pensumapp.models.input.MateriaInput;
 import com.ufps.ingsistemas.pensumapp.models.input.PensumInput;
 import com.ufps.ingsistemas.pensumapp.services.PensumService;
+import com.ufps.ingsistemas.pensumapp.vo.PensumVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +60,20 @@ public class PensumController {
     @GetMapping
     public ResponseEntity<List<PensumEntity>> listarPensums(){
         var pensums = pensumService.listarPensums();
+        if(pensums.isEmpty()) return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(pensums);
+    }
+
+    @GetMapping(value = "/terminados")
+    public ResponseEntity<List<PensumVO>> listarPensumsTerminados(){
+        List<PensumVO> pensums = pensumService.listarPensumsTerminados();
+        if(pensums.isEmpty()) return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(pensums);
+    }
+
+    @GetMapping(value = "/no-terminados")
+    public ResponseEntity<List<PensumVO>> listarPensumsNoTerminados(){
+        List<PensumVO> pensums = pensumService.listarPensumsNoTerminados();
         if(pensums.isEmpty()) return ResponseEntity.noContent().build();
         return ResponseEntity.ok(pensums);
     }
