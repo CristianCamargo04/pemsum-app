@@ -22,6 +22,8 @@ public class PensumAppApplication {
 		return new BCryptPasswordEncoder();
 	}
 
+
+
 	@Bean
 	CommandLineRunner run(UserService userService){
 		return args -> {
